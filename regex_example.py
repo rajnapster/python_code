@@ -6,7 +6,7 @@ Regex trial
 
 import re, os
 
-regex = '(?:^$)'
+regex = '(?:^$)' #Non printing regex
 obj = re.compile(regex, re.I)
 
 print (os.getcwd())
