@@ -4,11 +4,11 @@ from subprocess import Popen, PIPE
 import shlex
 import logging
 
+
 class MyFilter(logging.Filter):
     def filter(self, record):
         if record.msg.startswith('eth0'):
             return True
-
 
 def run_linux_command(command_string):
     temp_cmd_string = shlex.split(command_string)
@@ -18,7 +18,6 @@ def run_linux_command(command_string):
         return [ l for l in stderr.decode().split('\n') ]
     else:
         return [ l for l in stdout.decode().split('\n') ]
-
 
 myfilter = MyFilter()
 myformatter = logging.Formatter("MY HANDLER: %(name)s - %(message)s")
